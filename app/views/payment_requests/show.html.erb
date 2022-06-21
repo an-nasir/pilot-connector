@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @payment_request.amount %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @payment_request.currency %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @payment_request.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @payment_request.status %>
+</p>
+
+<%= link_to 'Edit', edit_payment_request_path(@payment_request) %> |
+<%= link_to 'Back', payment_requests_path %>
