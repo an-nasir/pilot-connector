@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# payment request migration
 class CreatePaymentRequests < ActiveRecord::Migration[6.1]
   def change
     create_table :payment_requests do |t|

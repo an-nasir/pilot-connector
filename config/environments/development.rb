@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
@@ -16,6 +18,7 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
+  #  rubocop:disable Rails/FilePath
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
@@ -29,6 +32,7 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+  #  rubocop:enable Rails/FilePath
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

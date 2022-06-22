@@ -17,6 +17,6 @@ class PaymentRequest < ApplicationRecord
 
   def notify_manager
     # TODO: Write Publish code here
-    # Publisher.publish('payment_requests', attributes)
+    Publisher.publish('payment_requests', attributes)
   end
 end

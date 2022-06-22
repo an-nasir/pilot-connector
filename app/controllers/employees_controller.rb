@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Employees controller acting as Connector
+#
 class EmployeesController < ApplicationController
   before_action :set_employee, only: %i[show edit update destroy]
 
