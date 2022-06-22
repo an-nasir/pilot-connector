@@ -21,4 +21,4 @@
 </p>
 
 <%= link_to 'Edit', edit_payment_request_path(@payment_request) %> |
-<%= link_to 'Back', payment_requests_path %>
+<%= link_to 'Back', payment_requests_path(employee_id: @payment_request.employee.id) %>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Employee Details</h2>
+<p>
+  <strong>First name:</strong>
+  <%= @employee.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @employee.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @employee.email %>
+</p>
+
+
+<h2>Payment Requests</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Amount</th>
+    <th>Currency</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @employee.payment_requests.each do |payment_request| %>
+    <tr>
+      <td><%= payment_request.amount %></td>
+      <td><%= payment_request.currency %></td>
+      <td><%= payment_request.description %></td>
+      <td><%= payment_request.status %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>
+<%= link_to 'New Payment Request', new_payment_request_path(employee_id: @employee.id) %>
