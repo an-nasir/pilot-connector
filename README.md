@@ -20,27 +20,21 @@ What will be evaluated in this homework:
 controller code that orchestrates everything – and all classes referenced by the controller code
 event handling code – and all your classes called from the event handlers
 
+**Application Setup**
 
+* Ruby version - 2.7.6
+* Rails 6.x.x
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
+* System dependencies - **RabbitMq** 
 
 * Configuration
 
-* Database creation
+* Database creation -- **rails db:create && rails db:migrate** in both manager and connector
 
-* Database initialization
-
-* How to run the test suite
+* HOW to run
+* **rake rabbitmq:setup** in connector app to bind exchange with queue
+* run **WORKERS=PaymentWorker rake sneakers:run** in manager app
+* create payment requests in connector UI/Console
+* How to run the test suite 
 
 * Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -6,8 +6,11 @@ class PaymentRequest < ApplicationRecord
 
   belongs_to :employee
   validates :currency, presence: true
+  validates :amount, presence: true
 
-  def validate
+  validate :valid_amount!
+
+  def valid_amount!
     errors.add(:amount, 'should be at least 0.01') if amount.nil? || amount < 0.01
   end
 
@@ -16,7 +19,10 @@ class PaymentRequest < ApplicationRecord
   private
 
   def notify_manager
-    # TODO: Write Publish code here
-    Publisher.publish('payment_requests', attributes)
+    Publisher.publish('payment_requests', fanout_attrs)
+  end
+
+  def fanout_attrs
+    attributes.except!(*%w[created_at updated_at status employee_id description])
   end
 end
