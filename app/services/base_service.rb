@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# acts as base bunny connection and channel
+# connection start etc
 class BaseService
   attr_accessor :connection, :channel, :default_queue
 
@@ -10,9 +14,5 @@ class BaseService
 
   def create_channel
     @channel = connection.create_channel
-  end
-
-  def default_queue(durable: false)
-    @queue = @channel.queue('', durable: durable)
   end
 end

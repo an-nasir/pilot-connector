@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Producer
   attr_accessor :mq_connection, :channel
 

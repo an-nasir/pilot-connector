@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConsumerService
   attr_accessor :mq_connection, :channel
 
