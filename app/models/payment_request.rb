@@ -19,10 +19,10 @@ class PaymentRequest < ApplicationRecord
   private
 
   def notify_manager
-    Publisher.publish('payment_requests', fanout_attrs)
+    Publisher.publish(scaled_down_attrs)
   end
 
-  def fanout_attrs
+  def scaled_down_attrs
     attributes.except!(*%w[created_at updated_at status employee_id description])
   end
 end

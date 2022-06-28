@@ -15,7 +15,7 @@ gem 'rails', '~> 6.1.6'
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-
+gem 'sneakers'
 gem 'rubocop-rails', require: false
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
