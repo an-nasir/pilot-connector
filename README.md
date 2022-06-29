@@ -32,9 +32,18 @@ event handling code – and all your classes called from the event handlers
 * Database creation -- **rails db:create && rails db:migrate** in both manager and connector
 
 * HOW to run
-* **rake rabbitmq:setup** in connector app to bind exchange with queue
-* run **WORKERS=PaymentWorker rake sneakers:run** in manager app
+* **cd ~/connector && rails s** in connector
+* **cd ~/manager && rails s -p 3001** in connector
 * create payment requests in connector UI/Console
-* How to run the test suite 
+**rails c** in connector app
+```
+Employee.create(first_name: 'nasir', email: 'nasir@gm.com')
+100.times do |s|
+Employee.last.payment_requests.new(currency: 'USD', amount: 0.01).save!
+  sleep 5
+end
+```
+This will start pushing/publishing but it's better to have both server running
+* How to run the test suite **rspec** in **connector app**
 
 * Services (job queues, cache servers, search engines, etc.)

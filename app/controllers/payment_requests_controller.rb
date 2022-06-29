@@ -28,7 +28,9 @@ class PaymentRequestsController < ApplicationController
     if @payment_request.save
       redirect_to payment_requests_path(employee_id: @payment_request.employee.id), notice: 'Created Successfully'
     else
+      @employee = @payment_request.employee
       render :new
+      # redirect_to payment_requests_path(employee_id: @payment_request.employee.id), notice: @payment_request.errors
     end
   end
 
@@ -37,6 +39,7 @@ class PaymentRequestsController < ApplicationController
     if @payment_request.update(payment_request_params)
       redirect_to @payment_request, notice: 'Payment request was successfully updated.'
     else
+      @employee = @payment_request.employee
       render :edit
     end
   end

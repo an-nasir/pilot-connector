@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Responsible for creating producer
+#
 class Producer
   attr_accessor :mq_connection, :channel
 

@@ -22,6 +22,13 @@ gem 'sneakers'
 
 gem 'bunny'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 5.0'
+end
+
+gem 'webpacker'
+
 group :development do
   gem 'listen', '~> 3.3'
 end
