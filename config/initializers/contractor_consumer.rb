@@ -25,15 +25,3 @@ q1.subscribe do |delivery_info, _properties, payload|
   updater(delivery_info, channel, payload)
 end
 
-# service = ConsumerService.new
-# conn = service.mq_connection
-# conn.start
-# ch = service.create_channel
-# service.declare_queue
-# service.queue.subscribe(manual_ack: true) do |_delivery_info, _properties, payload|
-#   payment_request_params = JSON.parse(payload, { symbolize_names: true })
-#   payment_request_params[:emp_payment_request_id] = payment_request_params.delete :id
-#   p payment_request_params
-#   PaymentRequest.create(payment_request_params)
-#   ch.ack(_delivery_info.delivery_tag)
-# end

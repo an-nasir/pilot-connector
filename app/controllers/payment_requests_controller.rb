@@ -11,9 +11,6 @@ class PaymentRequestsController < ApplicationController
     @payment_requests = @employee.payment_requests
   end
 
-  # GET /payment_requests/1
-  def show; end
-
   # GET /payment_requests/new
   def new
     @payment_request = PaymentRequest.new
@@ -30,24 +27,7 @@ class PaymentRequestsController < ApplicationController
     else
       @employee = @payment_request.employee
       render :new
-      # redirect_to payment_requests_path(employee_id: @payment_request.employee.id), notice: @payment_request.errors
     end
-  end
-
-  # PATCH/PUT /payment_requests/1
-  def update
-    if @payment_request.update(payment_request_params)
-      redirect_to @payment_request, notice: 'Payment request was successfully updated.'
-    else
-      @employee = @payment_request.employee
-      render :edit
-    end
-  end
-
-  # DELETE /payment_requests/1
-  def destroy
-    @payment_request.destroy
-    redirect_to payment_requests_url, notice: 'Payment request was successfully destroyed.'
   end
 
   private
